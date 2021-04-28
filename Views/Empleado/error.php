@@ -1,3 +1,3 @@
 <div class="alert alert-danger">
-  <strong>Error!</strong>.
+  <strong>¡Algo ha salido mal!</strong>
 </div>

@@ -16,7 +16,7 @@
 				<tr>
 					<a href="?controller=empleado&action=register"
 					   class="btn btn-primary btn-lg"
-					   role="button" aria-disabled="true"><span class='material-icons'>
+					   role="button" aria-disabled="true"><span class='material-icons md-18'>
 					   person_add</span>
 					</a>					
 					<th>Id</th>
