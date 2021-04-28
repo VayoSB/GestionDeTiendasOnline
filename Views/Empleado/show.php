@@ -8,19 +8,24 @@
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
 		</form>
 	</nav>
-
+	<br/>
 	<!-- Tabla que muestra los datos del empleado -->
 	<div class="table table-striped">
 		<table class="table table-hover">
 			<thead>
 				<tr>
+					<a href="?controller=empleado&action=register"
+					   class="btn btn-primary btn-lg"
+					   role="button" aria-disabled="true"><span class='material-icons'>
+					   person_add</span>
+					</a>					
 					<th>Id</th>
 					<th>Nombres</th>
 					<th>Apellidos</th>
 					<th>Direccion</th>
 					<th>Provincia</th>
 					<th>Estado</th>					
-					<th>Accion</th>
+					<th colspan="2">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -28,8 +33,7 @@
 					<?php foreach ($listaEmpleados as$empleado) {?>
 					
 					<tr>
-						<td> <a href="?controller=empleado&&action=updateshow&&idEmpleado=<?php  
-							echo $empleado->getId()?>"> <?php echo $empleado->getId(); ?></a> </td>
+						<td><?php echo $empleado->getId(); ?></a> </td>
 						<td><?php echo $empleado->getNombre(); ?></td>
 						<td><?php echo $empleado->getApellidos(); ?></td>
 						<td><?php echo $empleado->getDireccion(); ?></td>
@@ -39,8 +43,11 @@
 						<?php  else:?>
 							Inactivo
 						<?php endif; ?></td>
-						<td><button type="button" class="btn btn-outline-info">
-						<a href="?controller=empleado&&action=delete&&id=<?php echo $empleado->getId() ?>">Eliminar</a></button></td>
+						<td><span class='material-icons'><a href="?controller=empleado&&action=updateshow&&idEmpleado=<?php  
+							echo $empleado->getId()?>">mode</a></span></td>
+						<td><span class='material-icons'>
+						<a href="?controller=empleado&&action=delete&&id=<?php 
+						echo $empleado->getId() ?>">delete</a></span></td>
 					</tr>
 					<?php } ?>
 			</tbody>

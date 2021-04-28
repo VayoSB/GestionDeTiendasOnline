@@ -21,7 +21,7 @@
 
     <div class="form-group">
       <label for="text">Id Provincia:</label>
-      <input type="text" name="id_provincia" class="form-control" placeholder="Ingrese el id de su provincia">
+      <input type="number" name="id_provincia" class="form-control" placeholder="Ingrese el id de su provincia">
     </div>
     
     <div class="check-box">

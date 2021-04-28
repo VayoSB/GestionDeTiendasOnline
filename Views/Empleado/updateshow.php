@@ -2,6 +2,7 @@
 	<h2>Actualizar Empleado</h2>
 	<!-- Muestra el formulario con los datos a actualizar -->
 	<form action="?controller=empleado&&action=update" method="POST">
+	
 		<input type="hidden" name="id" value="<?php echo $empleado->getId() ?>" >
 		
 		<div class="form-group">
