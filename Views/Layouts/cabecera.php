@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="?controller=empleado&&action=show">Ver Empleado</a>
+          <a class="nav-link" href="?controller=empleado&&action=show">Empleados</a>
         </li>
       </ul>
     </div>

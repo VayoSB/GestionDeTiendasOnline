@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Empleados</title>
+	<title>Gestión de Tiendas Online</title>
 	<meta charset="utf-8">
 
 	<link rel="stylesheet" type="text/css" href="../TiendaBootstrap/style.scss">
