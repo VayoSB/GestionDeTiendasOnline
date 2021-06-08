@@ -36,7 +36,7 @@ class Provincia {
         $db=Db::getConnect();
         
         $insert=$db->prepare('INSERT INTO provincia VALUES (NULL, :nombre)');
-        $insert->bindValue('nombre',$empleado->getNombre());
+        $insert->bindValue('nombre',$provincia->getNombre());
         $insert->execute();
     }
 

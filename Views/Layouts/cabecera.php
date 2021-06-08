@@ -1,7 +1,8 @@
 <!-- Cabecera de la página -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="?controller=empleado&action=index">Empleados</a>
+    <img style="width: 15%;" src="../TiendaBootstrap/images/LogoGetio.png">
+    <a class="navbar-brand" href="?controller=empleado&action=index">Inicio</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
