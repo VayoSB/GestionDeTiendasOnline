@@ -51,7 +51,7 @@
     </tr>  
     <tr> 
       <td colspan="3">
-        <button type="submit" class="btn btn-outline-success">Guardar</button>
+        <button type="submit" class="btn btn-outline-primary">Guardar</button>
       </td>
     </tr>    
   </table>

@@ -1,22 +1,21 @@
-<div>
-	
+<div>	
 	<!-- Botón de búsqueda -->
 	<nav class="navbar navbar-light bg-light w-100">
 		<a href="?controller=empleado&action=register"
-			class="btn btn-outline-success btn-lg"
-			role="button" aria-disabled="true"><span class='material-icons md-18'>
+			class="btn btn-outline-primary btn-lg"
+			role="button" aria-disabled="true"><span class='material-icons md-18 p-1'>
 			person_add</span>
 		</a>
-		<h2>Lista de Empleados</h2>
+		<h4>Lista de Empleados</h4>
 		<form class="form-inline" action="?controller=empleado&action=search" method="post">
 			<input class="form-control mr-sm-2" type="search" id="nombre" name="nombre" 
 				placeholder="Busqueda por nombre" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+			<button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
 		</form>		
 	</nav>
 	<br/>
 	<!-- Tabla que muestra los datos del empleado -->
-	<div class="table table-striped">
+	<div class="table table-striped p-2">
 		<table class="table table-hover table-sm">
 			<thead>
 				<tr>										
@@ -47,7 +46,7 @@
 						<?php endif; ?></td>
 						<td><span class='material-icons md-18'>
 						<a href="?controller=empleado&&action=delete&&id=<?php 
-						echo $empleado->getId() ?>">delete</a></span></td>
+						echo $empleado->getId() ?>" style="color:#195176;">delete</a></span></td>
 					</tr>
 					<?php } ?>
 			</tbody>
