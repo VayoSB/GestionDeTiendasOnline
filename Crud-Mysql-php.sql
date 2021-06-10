@@ -26,6 +26,21 @@ CREATE TABLE empleado (
 );
 
 --
+-- Creamos la estructura de la tabla usuario
+--
+CREATE TABLE usuario (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `nombre_usuario` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+);
+
+--
+-- Introducimos los valores de la tabla usuario
+--
+INSERT INTO usuario VALUES (1,'Violeta', 'Vayo', '1234');
+
+--
 -- Introducimos valores a la tabla provincia
 --
 INSERT INTO provincia VALUES (1,'Almería'), (2,'Granada'), (3, 'Málaga'),

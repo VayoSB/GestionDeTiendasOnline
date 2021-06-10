@@ -1,3 +1,3 @@
 <div class="alert alert-danger">
-  <strong>¡Algo ha salido mal!</strong>
+  <strong>¡Usuario o contraseña incorrectos!</strong>
 </div>

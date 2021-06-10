@@ -1,3 +1,9 @@
+<?php
+  if(!isset($_SESSION)) { 
+      session_start(); 
+  } 
+  if($_SESSION["nombre"] ?? null) {
+?>
 <div class="card text-center">
   <h5 class="card-header">Inicio</h5>
 </div>
@@ -59,3 +65,7 @@
     </div>
   </div>
 </div>
+
+<?php
+  } else require_once('Views/Empleado/accesoDenegado.php');
+?>

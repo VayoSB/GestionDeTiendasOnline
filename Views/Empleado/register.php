@@ -24,12 +24,7 @@
         <label for="text">Direccion:</label>
         <input type="text" name="direccion" class="form-control" placeholder="Ingrese su direccion">
       </td>
-      <!--
-      <td class="form-group">
-        <label for="text">Id Provincia:</label>
-        <input type="number" name="id_provincia" class="form-control" placeholder="Ingrese el id de su provincia">
-      </td>
-      -->
+
       <td class="form-group">
       <label for="id_provincia">Provincia:</label>
       <select class="form-control" name="id_provincia">

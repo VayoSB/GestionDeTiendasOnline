@@ -1,3 +1,9 @@
+<?php
+  if(!isset($_SESSION)) { 
+      session_start(); 
+  } 
+  if($_SESSION["nombre"] ?? null) {
+?>
 <div>	
 	<!-- Botón de búsqueda -->
 	<nav class="navbar navbar-light bg-light w-100">
@@ -28,7 +34,7 @@
 					<th>Eliminar</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="cursor: pointer;">
 			<!-- Muestra los datos de la tabla de empleado -->
 					<?php foreach ($listaEmpleados as$empleado) {?>
 					
@@ -49,10 +55,11 @@
 						echo $empleado->getId() ?>" style="color:#195176;">delete</a></span></td>
 					</tr>
 					<?php } ?>
-			</tbody>
-			
+			</tbody>			
 		</table>
-
 	</div>	
-
 </div>
+
+<?php
+  }else require_once('Views/Empleado/accesoDenegado.php');
+?>

@@ -15,6 +15,16 @@ class UsuarioController
 		require_once('Views/Empleado/bienvenido.php');
 	}
 
+	//Función que redirige a la página de login
+	function login() {
+		require_once('Views/Empleado/login.php');
+	}
+
+	//Función que redirige a la página de login
+	function logout() {
+		require_once('Views/Empleado/logout.php');
+	}
+
 	//Función que redirige a la página de registro
 	function register(){
 		require_once('Views/Empleado/register.php');

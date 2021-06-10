@@ -8,7 +8,7 @@
 		$action=$_GET['action'];
 	}else{
 		$controller='empleado';
-		$action='index';
+		$action='login';
 	}
 	require_once('Views/Layouts/layout.php');	
- ?>
+?>

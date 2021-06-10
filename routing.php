@@ -2,10 +2,11 @@
 
 //Llama a las funciones de EmpleadoController.php para definir las rutas
 $controllers=array(
-	'empleado'=>['index','register','save','show','updateshow','update','delete','search','error']
+	'empleado'=>['login','index','register','save','show','updateshow','update',
+		'delete','search','error','logout']
 );
 
-if (array_key_exists($controller,  $controllers)) {
+if (array_key_exists($controller, $controllers)) {
 	if (in_array($action, $controllers[$controller])) {
 		call($controller, $action);
 	}

@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION)){ 
+        session_start(); 
+    } 
+    if($_SESSION["nombre"] ?? null) {
+?>
 <!-- Cabecera de la página -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
@@ -32,10 +38,20 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link-primary p-4" href="?controller=empleado&&action=show" style="color:#195176;">
+          <a class="nav-link-primary p-2" href="" style="color:#195176;">
             <span class="material-icons align-middle">people_alt</span>Clientes</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link-primary p-2" href="?controller=empleado&&action=logout" style="color:#195176;">
+            <span class="material-icons align-middle">logout</span>Cerrar Sesión</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<?php
+  } else echo "<h1></h1>";
+?>
