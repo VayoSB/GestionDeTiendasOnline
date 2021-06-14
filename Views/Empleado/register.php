@@ -1,6 +1,18 @@
 <?php
   $db=Db::getConnect();
+
+  if(!isset($_SESSION)) { 
+    session_start(); 
+  } 
+  if($_SESSION["nombre"] ?? null) {
 ?>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="?controller=empleado&action=index">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="?controller=empleado&&action=show">Empleados</a></li>
+  </ol>
+</nav>
 
 <div class="card container mt-3">
   <h2 class="align-self-center p-2">Registro de Empleado</h2>
@@ -52,3 +64,7 @@
   </table>
   </form>  
 </div>
+
+<?php
+  } else require_once('Views/Empleado/accesoDenegado.php');
+?>

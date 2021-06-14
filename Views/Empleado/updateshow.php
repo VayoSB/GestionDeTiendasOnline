@@ -1,3 +1,17 @@
+<?php 
+  if(!isset($_SESSION)) { 
+    session_start(); 
+  } 
+  if($_SESSION["nombre"] ?? null) {
+?>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="?controller=empleado&action=index">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="?controller=empleado&&action=show">Empleados</a></li>
+  </ol>
+</nav>
+
 <div class="card container mt-2">
 	<h2 class="align-self-center p-2">Actualizar Empleado <?php echo $empleado->getNombre() ?> 
 		<?php echo $empleado->getApellidos() ?>
@@ -39,3 +53,7 @@
 		</table>
 	</form>
 </div>
+
+<?php
+  } else require_once('Views/Empleado/accesoDenegado.php');
+?>
