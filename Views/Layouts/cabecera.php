@@ -1,9 +1,3 @@
-<?php
-    if(!isset($_SESSION)){ 
-        session_start(); 
-    } 
-    if($_SESSION["nombre"] ?? null) {
-?>
 <!-- Cabecera de la página -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
@@ -57,6 +51,3 @@
   </div>
 </nav>
 
-<?php
-  } else echo "";
-?>

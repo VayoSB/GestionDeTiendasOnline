@@ -21,12 +21,19 @@
 <body>
 	<header>
 		<?php 
-			require_once('cabecera.php');
+			if(!isset($_SESSION)){ 
+				session_start(); 
+			} 
+			if($_SESSION["nombre"] ?? null) {
+				require_once('cabecera.php');
+			} else echo "";
 		?>		
 	</header>
 
 	<section>
-		<?php require_once('routing.php'); ?>
+		<?php 
+			require_once('routing.php'); 
+		?>
 	</section>	
 </body>
 </html>

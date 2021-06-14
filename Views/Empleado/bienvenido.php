@@ -3,7 +3,9 @@
       session_start(); 
   } 
   if($_SESSION["nombre"] ?? null) {
+    require_once('../TiendaBootstrap/Views/Layouts/cabecera.php');
 ?>
+
 <div class="card text-center">
   <h5 class="card-header">Gestión de Tiendas Online</h5>
 </div>
