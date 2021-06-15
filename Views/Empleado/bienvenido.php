@@ -10,7 +10,7 @@
   <h5 class="card-header">Gestión de Tiendas Online</h5>
 </div>
 
-<div class="row align-items-start p-2">
+<div class="row align-items-start p-3">
   <div class="card ml-4 mr-4" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title" style="color:#195176;"><span class="material-icons align-middle">badge</span>Lista de Empleados</h5>

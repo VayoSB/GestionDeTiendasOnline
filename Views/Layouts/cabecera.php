@@ -17,25 +17,25 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link-primary p-2 ml-2" href="?controller=empleado&&action=show" style="color:#195176;">
-            <span class="material-icons align-middle">work</span>Empleados</a>
+            <span class="material-icons md-18 align-middle">work</span>Empleados</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link-primary p-2" href="" style="color:#195176;">
-            <span class="material-icons align-middle">store</span>Departamentos</a>
+            <span class="material-icons md-18 align-middle">store</span>Departamentos</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link-primary p-2" href="" style="color:#195176;">
-            <span class="material-icons align-middle">inventory</span>Inventario</a>
+            <span class="material-icons md-18 align-middle">inventory</span>Inventario</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link-primary p-2" href="" style="color:#195176;">
-            <span class="material-icons align-middle">people_alt</span>Clientes</a>
+            <span class="material-icons md-18 align-middle">people_alt</span>Clientes</a>
         </li>
       </ul>      
     </div>
@@ -45,7 +45,7 @@
     <ul class="navbar-nav float-right">
       <li class="nav-item">
         <a class="nav-link-primary p-1" href="?controller=empleado&&action=logout" style="color:#195176;">
-        <span class="material-icons align-middle">logout</span>Salir</a>
+        <span class="material-icons md-18 align-middle">logout</span>Salir</a>
       </li>
     </ul>
   </div>
