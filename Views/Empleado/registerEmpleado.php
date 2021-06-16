@@ -9,7 +9,7 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="?controller=empleado&action=index">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="?controller=index&action=index">Inicio</a></li>
     <li class="breadcrumb-item"><a href="?controller=empleado&&action=showEmpleado">Empleados</a></li>
   </ol>
 </nav>
@@ -55,6 +55,23 @@
       <td class="check-box">
         <label>Activo <input type="checkbox" name="estado"></label>      
       </td>
+    <tr>
+      <td class="form-group">
+        <label for="id_tienda">Tienda:</label>
+        <select class="form-control" name="id_tienda">
+        <option value="">Seleccione la tienda:</option>
+        <?php
+          $query = $db->prepare("SELECT * FROM tienda");
+          $query->execute();
+          $data = $query->fetchAll();
+
+          foreach ($data as $valores):
+            echo '<option value="'.$valores["id_tienda"].'">'.$valores["nombre_tienda"].'</option>';
+          endforeach;
+        ?>
+        </select>
+      </td>
+    </tr>
     </tr>  
     <tr> 
       <td colspan="3">

@@ -2,7 +2,7 @@
 /**
 * Vista controlador Empleado
 */
-class UsuarioController
+class EmpleadoController
 {
 	
 	function __construct()
@@ -10,23 +10,9 @@ class UsuarioController
 		
 	}
 
-	//Función que redirige a la página de bienvenida
-	function index(){
-		require_once('Views/bienvenido.php');
-	}
-
-	//Función que redirige a la página de login
-	function login() {
-		require_once('Views/Login/login.php');
-	}
-
-	//Función que redirige a la página de login
-	function logout() {
-		require_once('Views/Login/logout.php');
-	}
-
+	
 	//Función que redirige a la página de registro
-	function registerEmpleado(){
+	function register(){
 		require_once('Views/Empleado/registerEmpleado.php');
 	}
 
@@ -38,7 +24,7 @@ class UsuarioController
 			$estado="on";
 		}
 		$empleado= new Empleado(null, $_POST['nombre'],$_POST['apellidos'],$_POST['direccion'],
-		$_POST['id_provincia'],$estado);
+		$_POST['id_provincia'],$estado,$_POST['id_tienda']);
 
 		Empleado::save($empleado);
 		$this->showEmpleado();
@@ -61,7 +47,7 @@ class UsuarioController
 	//Función que permite actualizar los valores del empleado
 	function update(){
 		$empleado = new Empleado($_POST['id'],$_POST['nombre'],$_POST['apellidos'],
-			$_POST['direccion'],$_POST['id'],$_POST['estado']);
+			$_POST['direccion'],$_POST['id'],$_POST['estado'],$_POST['id_tienda']);
 		Empleado::update($empleado);
 		$this->showEmpleado();
 	}
@@ -86,11 +72,6 @@ class UsuarioController
 			
 			require_once('Views/Empleado/showEmpleado.php');
 		}		
-	}
-
-	//Función que muestra una página de error
-	function error(){
-		require_once('Views/Errores/error.php');
 	}
 }
 

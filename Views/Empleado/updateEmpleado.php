@@ -7,7 +7,7 @@
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="?controller=empleado&action=index">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="?controller=index&action=index">Inicio</a></li>
     <li class="breadcrumb-item"><a href="?controller=empleado&&action=showEmpleado">Empleados</a></li>
   </ol>
 </nav>
@@ -39,7 +39,11 @@
 					<input type="text" name="direccion" id="direccion" class="form-control" 
 						value="<?php echo $empleado->getDireccion(); ?>">
 				</td>
-				
+				<td class="form-group" style="display:none;">
+					<label for="text">Tienda</label>
+					<input type="text" name="id_tienda" id="id_tienda" class="form-control" 
+						value="<?php echo $empleado->getTienda(); ?>">
+				</td>				
 				<td class="check-box">
 					<label>Activo <input type="checkbox" name="estado" <?php echo $empleado->getEstado() ?>>
 					</label>

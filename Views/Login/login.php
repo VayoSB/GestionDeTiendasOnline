@@ -9,14 +9,14 @@
         $result = mysqli_query($con,"SELECT * FROM usuario WHERE nombre_usuario = '". $_POST["nombre_usuario"] . "' and password = '". $_POST["password"]."'");
         $row  = mysqli_fetch_array($result);
         if(is_array($row)) {
-            $_SESSION["id"] = $row['id'];
+            $_SESSION["id_usuario"] = $row['id_usuario'];
             $_SESSION["nombre"] = $row['nombre'];
         } else {
-            require_once('Views/Errores/error.php');
+            require_once('Views/Errores/errorLogin.php');
         }
     }
-    if(isset($_SESSION["id"])) {
-        require_once('Views/Errores/bienvenido.php');
+    if(isset($_SESSION["id_usuario"])) {
+        require_once('Views/bienvenido.php');
     }else{
 ?>
 

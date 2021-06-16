@@ -7,7 +7,7 @@
 		$controller=$_GET['controller'];
 		$action=$_GET['action'];
 	}else{
-		$controller='empleado';
+		$controller='index';
 		$action='login';
 	}
 	require_once('Views/Layouts/layout.php');	

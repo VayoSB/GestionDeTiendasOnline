@@ -1,7 +1,7 @@
 <!-- Cabecera de la página -->
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
   <div class="container-fluid">
-    <a class="nav-link-primary" href="?controller=empleado&action=index" style="color:#195176;">          
+    <a class="nav-link-primary" href="?controller=index&action=index" style="color:#195176;">          
     <img src="../TiendaBootstrap/images/LogoGetio.png"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav float-right">
       <li class="nav-item">
-        <a class="nav-link-primary p-1" href="?controller=empleado&&action=logout" style="color:#195176;">
+        <a class="nav-link-primary p-1" href="?controller=index&&action=logout" style="color:#195176;">
         <span class="material-icons md-18 align-middle">logout</span>Salir</a>
       </li>
     </ul>

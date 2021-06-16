@@ -2,8 +2,9 @@
 
 //Llama a las funciones de EmpleadoController.php para definir las rutas
 $controllers=array(
-	'empleado'=>['login','index','registerEmpleado','save','showEmpleado','updateEmpleado','update',
-		'delete','search','error','logout']
+	'empleado'=>['register','save','showEmpleado','updateEmpleado','update',
+		'delete','search'],
+	'index'=>['index','login','logout','error']
 );
 
 if (array_key_exists($controller, $controllers)) {
@@ -11,10 +12,10 @@ if (array_key_exists($controller, $controllers)) {
 		call($controller, $action);
 	}
 	else{
-		call('empleado','error');
+		call('index','errorRuta');
 	}		
 }else{
-	call('empleado','error');
+	call('index','errorLogin');
 }
 
 function call($controller, $action){
@@ -23,12 +24,16 @@ function call($controller, $action){
 	switch ($controller) {
 		//Con cada case se establece el nombre del controlador
 		case 'empleado':
-		require_once('Model/Empleado.php');
-		$controller= new UsuarioController();
-		break;			
+			require_once('Model/Empleado.php');
+			$controller= new EmpleadoController();
+			break;
+		case 'index':
+			require_once('Model/Empleado.php');
+			$controller= new IndexController();
+			break;			
 		default:
 				# code...
-		break;
+			break;
 	}
 	$controller->{$action}();
 }
