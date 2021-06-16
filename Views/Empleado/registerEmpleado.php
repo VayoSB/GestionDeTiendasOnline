@@ -10,7 +10,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="?controller=empleado&action=index">Inicio</a></li>
-    <li class="breadcrumb-item"><a href="?controller=empleado&&action=show">Empleados</a></li>
+    <li class="breadcrumb-item"><a href="?controller=empleado&&action=showEmpleado">Empleados</a></li>
   </ol>
 </nav>
 
@@ -66,5 +66,5 @@
 </div>
 
 <?php
-  } else require_once('Views/Empleado/accesoDenegado.php');
+  } else require_once('Views/Errores/accesoDenegado.php');
 ?>

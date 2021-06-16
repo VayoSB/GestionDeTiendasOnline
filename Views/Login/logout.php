@@ -4,5 +4,5 @@
     } 
     unset($_SESSION["id"]);
     unset($_SESSION["nombre"]);
-    require_once('Views/Empleado/login.php');
+    require_once('Views/Login/login.php');
 ?>

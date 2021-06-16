@@ -2,7 +2,7 @@
 
 //Llama a las funciones de EmpleadoController.php para definir las rutas
 $controllers=array(
-	'empleado'=>['login','index','register','save','show','updateshow','update',
+	'empleado'=>['login','index','registerEmpleado','save','showEmpleado','updateEmpleado','update',
 		'delete','search','error','logout']
 );
 

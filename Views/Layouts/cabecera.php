@@ -7,23 +7,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-    <!--
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link-primary p-2" href="?controller=empleado&action=index" style="color:#195176;">
-          <span class="material-icons align-middle">home</span>Inicio</a>
-        </li>
-      </ul> -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link-primary p-2 ml-2" href="?controller=empleado&&action=show" style="color:#195176;">
+          <a class="nav-link-primary p-2 ml-2" href="?controller=empleado&&action=showEmpleado" style="color:#195176;">
             <span class="material-icons md-18 align-middle">work</span>Empleados</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link-primary p-2" href="" style="color:#195176;">
-            <span class="material-icons md-18 align-middle">store</span>Departamentos</a>
+            <span class="material-icons md-18 align-middle">store</span>Tienda</a>
         </li>
       </ul>
       <ul class="navbar-nav">
@@ -35,7 +28,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link-primary p-2" href="" style="color:#195176;">
-            <span class="material-icons md-18 align-middle">people_alt</span>Clientes</a>
+            <span class="material-icons md-18 align-middle">people_alt</span>Usuarios</a>
         </li>
       </ul>      
     </div>

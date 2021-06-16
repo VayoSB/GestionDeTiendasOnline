@@ -7,7 +7,7 @@
 <div>	
 	<!-- Botón de búsqueda -->
 	<nav class="navbar navbar-light bg-light w-100">
-		<a href="?controller=empleado&action=register"
+		<a href="?controller=empleado&action=registerEmpleado"
 			class="btn btn-outline-primary btn-lg"
 			role="button" aria-disabled="true"><span class='material-icons md-18 p-1'>
 			person_add</span>
@@ -21,7 +21,7 @@
 	</nav>
 	<br/>
 	<!-- Tabla que muestra los datos del empleado -->
-	<div class="table table-striped p-2">
+	<div class="table table-striped pl-2 pr-2">
 		<table class="table table-hover table-sm">
 			<thead>
 				<tr>										
@@ -38,7 +38,7 @@
 			<!-- Muestra los datos de la tabla de empleado -->
 					<?php foreach ($listaEmpleados as$empleado) {?>
 					
-					<tr onclick="document.location='?controller=empleado&&action=updateshow&&idEmpleado=<?php  
+					<tr onclick="document.location='?controller=empleado&&action=updateEmpleado&&idEmpleado=<?php  
 						echo $empleado->getId()?>'">
 						<td><?php echo $empleado->getId(); ?></a> </td>
 						<td><?php echo $empleado->getNombre(); ?></td>
@@ -76,5 +76,5 @@
 </div>
 
 <?php
-  }else require_once('Views/Empleado/accesoDenegado.php');
+  }else require_once('Views/Errores/accesoDenegado.php');
 ?>
