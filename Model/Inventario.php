@@ -9,15 +9,17 @@ class Inventario
 	private $precio;
 	private $cantidad;
 	private $descripcion;
+	private $tienda;
 
 	//Constructor del inventario
-	function __construct($id_inventario, $nombre_producto, $precio, $cantidad, $descripcion)
+	function __construct($id_inventario, $nombre_producto, $precio, $cantidad, $descripcion,$tienda)
 	{
 		$this->setIdInventario($id_inventario);
 		$this->setNombreProducto($nombre_producto);
 		$this->setPrecio($precio);
 		$this->setCantidad($cantidad);
-		$this->setDescripcion($descripcion);	
+		$this->setDescripcion($descripcion);
+		$this->setTienda($tienda);	
 	}
 
 	//Getters y setters de inventario
@@ -41,6 +43,14 @@ class Inventario
 		return $this->precio;
 	}
 
+	public function setPrecio($precio){
+		$this->precio = $precio;
+	}
+
+	public function getCantidad(){
+		return $this->cantidad;
+	}
+
 	public function setCantidad($cantidad){
 		$this->cantidad = $cantidad;
 	}
@@ -53,12 +63,12 @@ class Inventario
 		$this->descripcion = $descripcion;
 	}
 
-	public function getIdTienda(){
-		return $this->id_tienda;
+	public function getTienda(){
+		return $this->tienda;
 	}
 
-	public function setIdTienda($id_tienda){
-		$this->id_tienda = $id_tienda;
+	public function setTienda($tienda){
+		$this->tienda = $tienda;
 	}
 
 	// Inserta valores nuevos a la tabla inventario	 
@@ -72,7 +82,7 @@ class Inventario
 		$insert->bindValue('precio',$inventario->getPrecio());
 		$insert->bindValue('cantidad',$inventario->getCantidad());
 		$insert->bindValue('descripcion',$inventario->getDescripcion());		
-		$insert->bindValue('id_tienda',$inventario->getIdTienda());
+		$insert->bindValue('id_tienda',$inventario->getTienda());
 		$insert->execute();
 
 	}
@@ -91,7 +101,7 @@ class Inventario
 
 		foreach($select->fetchAll() as $inventario){
 			$listaInventario[]=new Inventario($inventario['id_inventario'],$inventario['nombre_producto'],$inventario['precio'],
-				$inventario['cantidad'],$inventario['descripcion'],$inventario['id_tienda']);
+				$inventario['cantidad'],$inventario['descripcion'],$inventario['nombre_tienda']);
 		}
 		
 		return $listaInventario;
@@ -139,11 +149,12 @@ class Inventario
 		$db=Db::getConnect();
 		$update=$db->prepare('UPDATE inventario SET nombre_producto=:nombre_producto, precio=:precio,
 			cantidad=:cantidad, descripcion=:descripcion, id_tienda=:id_tienda WHERE id_inventario=:id_inventario');
+		$update->bindValue('id_inventario',$inventario->getIdInventario());
 		$update->bindValue('nombre_producto', $inventario->getNombreProducto());
 		$update->bindValue('precio',$inventario->getPrecio());
 		$update->bindValue('cantidad',$inventario->getCantidad());
 		$update->bindValue('descripcion',$inventario->getDescripcion());
-		$update->bindValue('id_tienda',$inventario->getIdTienda());
+		$update->bindValue('id_tienda',$inventario->getTienda());
 		$update->execute();
 	}
 

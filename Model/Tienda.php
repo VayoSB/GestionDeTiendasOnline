@@ -151,12 +151,14 @@ class Tienda
 	public static function update($tienda){
 		$db=Db::getConnect();
 		$update=$db->prepare('UPDATE tienda SET nombre_tienda=:nombre_tienda, direccion=:direccion,
-			codigo_postal=:codigo_postal, telefono=:telefono WHERE id_tienda=:id_tienda');
+			codigo_postal=:codigo_postal, telefono=:telefono, id_provincia=:id_provincia
+			WHERE id_tienda=:id_tienda');
+		$update->bindValue('id_tienda', $tienda->getIdTienda());
 		$update->bindValue('nombre_tienda', $tienda->getNombreTienda());
 		$update->bindValue('direccion',$tienda->getDireccion());
 		$update->bindValue('codigo_postal',$tienda->getCodigoPostal());
 		$update->bindValue('telefono',$tienda->getTelefono());
-		$update->bindValue('id_provincia',$tienda->getId());
+		$update->bindValue('id_provincia',$tienda->getProvincia());
 		$update->execute();
 	}
 

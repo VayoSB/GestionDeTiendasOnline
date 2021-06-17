@@ -44,8 +44,8 @@
 					<input type="text" name="id_tienda" id="id_tienda" class="form-control" 
 						value="<?php echo $empleado->getTienda(); ?>">
 				</td>				
-				<td class="check-box">
-					<label>Activo <input type="checkbox" name="estado" <?php echo $empleado->getEstado() ?>>
+				<td class="form-group">
+					<label>Activo <input type="checkbox" id="estado" name="estado" <?php echo $empleado->getEstado() ?>>
 					</label>
 				</td>
 			</tr>

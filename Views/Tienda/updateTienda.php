@@ -38,10 +38,15 @@
 					<input type="text" name="codigo_postal" id="codigo_postal" class="form-control" 
 						value="<?php echo $tienda->getCodigoPostal(); ?>">
 				</td>
-				<td class="form-group" style="display:none;">
+				<td class="form-group">
 					<label for="text">Teléfono</label>
 					<input type="text" name="telefono" id="telefono" class="form-control" 
 						value="<?php echo $tienda->getTelefono(); ?>">
+				</td>	
+				<td class="form-group" style="display:none;">
+					<label for="text">Provincia</label>
+					<input type="text" name="id_provincia" id="id_provincia" class="form-control" 
+						value="<?php echo $tienda->getProvincia(); ?>">
 				</td>				
 			</tr>
 			<tr>

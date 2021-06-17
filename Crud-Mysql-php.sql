@@ -92,7 +92,8 @@ INSERT INTO tienda VALUES (1,'Tienda Informática','Av.Mediterraneo 23','04008',
 -- Introducimos valores a la tabla inventario
 --    
 
-INSERT INTO inventario VALUES (1,'Procesador AMD Ryzen 5 2600 34 Ghz','164',10,'Procesador AMD','1');
+INSERT INTO inventario VALUES (1,'Procesador AMD Ryzen 5 2600 34 Ghz','164',10,'Procesador AMD','1'),
+							  (2,'TV LED 55" - Samsung UE55AU7175UXXC','539',15,'Verás los contenidos de la forma más nítida, realista y natural posible gracias a su tecnología Contrast Enhancer y a sus más de mil millones de colores formados por nanopartículas inorgánicas cristalinas que ofrece el Procesador Crystal UHD.','2');
 
 --
 -- Introducimos valores a la tabla empleado
