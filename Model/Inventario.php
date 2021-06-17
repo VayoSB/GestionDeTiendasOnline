@@ -85,8 +85,8 @@ class Inventario
 		$listaInventario=[];
 
 		$select=$db->query('SELECT * 
-							FROM inventario INNER JOIN provincia
-							ON inventario.id_provincia = provincia.id_provincia; 
+							FROM inventario INNER JOIN tienda
+							ON inventario.id_tienda = tienda.id_tienda 
 							ORDER BY id_inventario');
 
 		foreach($select->fetchAll() as $inventario){
@@ -101,8 +101,8 @@ class Inventario
 	public static function searchByName($name){
 		$db=Db::getConnect();
 		$select=$db->prepare('SELECT *
-							  FROM tienda INNER JOIN provincia
-							  ON tienda.id_provincia = provincia.id_provincia 
+							  FROM inventario INNER JOIN tienda
+							  ON inventario.id_tienda = tienda.id_tienda 
 							  WHERE nombre_producto=:nombre_producto');
 		$select->bindValue('nombre_producto',$name);
 		$select->execute();
@@ -114,6 +114,24 @@ class Inventario
 	
 		return $inventario;
 
+	}
+
+	//Hace búsquedas por el id
+	public static function searchById($id_inventario){
+		$db=Db::getConnect();
+		$select=$db->prepare('SELECT *
+							  FROM inventario 
+							  WHERE id_inventario=:id_inventario');
+		$select->bindValue('id_inventario',$id_inventario);
+		$select->execute();
+
+		$inventarioDb=$select->fetch();
+
+
+		$inventario = new Inventario ($inventarioDb['id_inventario'],$inventarioDb['nombre_producto'], $inventarioDb['precio'], 
+							  $inventarioDb['cantidad'], $inventarioDb['descripcion'], $inventarioDb['id_tienda']);
+	
+		return $inventario;
 	}
 
 	//Actualiza los valores de la tabla inventario

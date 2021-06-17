@@ -13,8 +13,7 @@
 </nav>
 
 <div class="card container mt-2">
-	<h2 class="align-self-center p-2">Actualizar Tienda <?php echo $tienda->getIdTienda() ?> 
-		<?php echo $tienda->getNombreTienda() ?>
+	<h2 class="align-self-center p-2">Actualizar <?php echo $tienda->getNombreTienda() ?>
 	</h2>
 	<!-- Muestra el formulario con los datos a actualizar -->
 	<form action="?controller=tienda&&action=update" method="POST">

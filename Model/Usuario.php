@@ -95,8 +95,27 @@ class Usuario {
 		$usuarioDb=$select->fetch();
 
 		$usuario = new Usuario ($usuarioDb['id_usuario'],$usuarioDb['nombre'], $usuarioDb['nombre_usuario'], 
-							  $tiendaDb['password']);
+							  $usuarioDb['password']);
 	
+		return $usuario;
+
+	}
+
+	//Hace búsquedas por el id
+	public static function searchById($id_usuario){
+		$db=Db::getConnect();
+		$select=$db->prepare('SELECT *
+							  FROM usuario 
+							  WHERE id_usuario=:id_usuario');
+		$select->bindValue('id_usuario',$id_usuario);
+		$select->execute();
+
+		$usuarioDb=$select->fetch();
+
+
+		$usuario = new Usuario ($usuarioDb['id_usuario'],$usuarioDb['nombre'], $usuarioDb['nombre_usuario'], 
+							  $usuarioDb['password']);
+							  
 		return $usuario;
 
 	}
@@ -106,6 +125,7 @@ class Usuario {
 		$db=Db::getConnect();
 		$update=$db->prepare('UPDATE usuario SET nombre=:nombre, nombre_usuario=:nombre_usuario,
 			password=:password WHERE id_usuario=:id_usuario');
+		$update->bindValue('id_usuario',$usuario->getIdUsuario());
 		$update->bindValue('nombre', $usuario->getNombre());
 		$update->bindValue('nombre_usuario',$usuario->getNombreUsuario());
 		$update->bindValue('password',$usuario->getPassword());
