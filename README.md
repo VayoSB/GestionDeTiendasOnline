@@ -1,4 +1,4 @@
-# TiendaBootstrap
+# GestionDeTiendasOnline
 Proyecto CRUD para la gestión y organización de tiendas online
 desarrollado íntegramente con Bootstrap y php. 
 
