@@ -15,19 +15,19 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link-primary p-2" href="" style="color:#195176;">
+          <a class="nav-link-primary p-2" href="?controller=tienda&&action=showTienda" style="color:#195176;">
             <span class="material-icons md-18 align-middle">store</span>Tienda</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link-primary p-2" href="" style="color:#195176;">
+          <a class="nav-link-primary p-2" href="?controller=inventario&&action=showInventario" style="color:#195176;">
             <span class="material-icons md-18 align-middle">inventory</span>Inventario</a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link-primary p-2" href="" style="color:#195176;">
+          <a class="nav-link-primary p-2" href="?controller=usuario&&action=showUsuario" style="color:#195176;">
             <span class="material-icons md-18 align-middle">people_alt</span>Usuarios</a>
         </li>
       </ul>      

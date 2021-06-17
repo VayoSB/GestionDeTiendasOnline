@@ -85,7 +85,8 @@ INSERT INTO provincia VALUES (1,'Almería'), (2,'Granada'), (3, 'Málaga'),
 -- Introducimos valores a la tabla tienda
 --                          
 
-INSERT INTO tienda VALUES (1,'Tienda Informática','Av.Mediterraneo 23','04008','950163726','1');
+INSERT INTO tienda VALUES (1,'Tienda Informática','Av.Mediterraneo 23','04008','950163726','1'),
+						  (2,'Tienda Electrodomésticos','Calle García Lorca 8','04567','6345678','5');
 
 --
 -- Introducimos valores a la tabla inventario

@@ -1,52 +1,65 @@
 <?php 
 /**
-* Vista modelo empleado
+* Vista modelo tienda
 */
-class Empleado
+class Tienda
 {
-	private $id;
-	private $nombre;
-	private $apellidos;
+	private $id_tienda;
+	private $nombre_tienda;
 	private $direccion;
-	private $tienda;
+	private $codigo_postal;
+	private $telefono;
 	private $provincia;
-	private $estado;
 
-	//Constructor del empleado
-	function __construct($id, $nombre, $apellidos, $direccion, $provincia, $estado, $id_tienda)
-	{
-		$this->setId($id);
-		$this->setNombre($nombre);
-		$this->setApellidos($apellidos);
+	//Constructor de la tienda
+	function __construct($id_tienda, $nombre_tienda, $direccion, $codigo_postal, $telefono,$provincia) {
+		$this->setIdTienda($id_tienda);
+		$this->setNombreTienda($nombre_tienda);
 		$this->setDireccion($direccion);
-		$this->setProvincia($provincia);
-		$this->setEstado($estado);	
-		$this->setTienda($id_tienda);		
+		$this->setCodigoPostal($codigo_postal);
+		$this->setTelefono($telefono);	
+		$this->setProvincia($provincia);			
 	}
 
-	//Getters y setters de empleado
-	public function getId(){
-		return $this->id;
+	//Getters y setters de tienda
+	public function getIdTienda() {
+		return $this->id_tienda;
 	}
 
-	public function setId($id){
-		$this->id = $id;
+	public function setIdTienda($id_tienda) {
+		$this->id_tienda = $id_tienda;
 	}
 
-	public function getNombre(){
-		return $this->nombre;
+	public function getNombreTienda() {
+		return $this->nombre_tienda;
 	}
 
-	public function setNombre($nombre){
-		$this->nombre = $nombre;
+	public function setNombreTienda($nombre_tienda) {
+		$this->nombre_tienda = $nombre_tienda;
 	}
 
-	public function getDireccion(){
+	public function getDireccion() {
 		return $this->direccion;
 	}
 
-	public function setDireccion($direccion){
+	public function setDireccion($direccion) {
 		$this->direccion = $direccion;
+	}
+
+	public function getCodigoPostal() {
+		return $this->codigo_postal;
+	}
+
+	public function setCodigoPostal($codigo_postal) {
+		$this->codigo_postal = $codigo_postal;
+	}
+
+	public function getTelefono() {
+		return $this->telefono;
+	}
+
+	public function setTelefono($telefono) {
+		$this->telefono = $telefono;
 	}
 
 	public function getProvincia(){
@@ -57,136 +70,101 @@ class Empleado
 		$this->provincia = $provincia;
 	}
 
-	public function getTienda(){
-		return $this->tienda;
-	}
-
-	public function setTienda($tienda){
-		$this->tienda = $tienda;
-	}
-
-	public function getApellidos(){
-		return $this->apellidos;
-	}
-
-	public function setApellidos($apellidos){
-		$this->apellidos = $apellidos;
-	}
-
-	public function getEstado(){
-
-		return $this->estado;
-	}
-
-	public function setEstado($estado){
-		
-		if (strcmp($estado, 'on')==0) {
-			$this->estado=1;
-		} elseif(strcmp($estado, '1')==0) {
-			$this->estado='checked';
-		}elseif (strcmp($estado, '0')==0) {
-			$this->estado='off';
-		}else {
-			$this->estado=0;
-		}
-	}
-
-	// Inserta valores nuevos a la tabla empleado	 
-	public static function save($empleado){
+	// Inserta valores nuevos a la tabla tienda	 
+	public static function save($tienda) {
 		$db=Db::getConnect();
 				
-		$insert=$db->prepare('INSERT INTO empleado VALUES (NULL, :nombre,:apellidos,:id_provincia,
-			:direccion,:estado,:id_tienda)');
+		$insert=$db->prepare('INSERT INTO tienda VALUES (NULL,:nombre_tienda,:direccion,:codigo_postal,
+			:telefono,:id_provincia)');
 
-		$insert->bindValue('nombre',$empleado->getNombre());
-		$insert->bindValue('apellidos',$empleado->getApellidos());
-		$insert->bindValue('id_provincia',$empleado->getProvincia());
-		$insert->bindValue('direccion',$empleado->getDireccion());		
-		$insert->bindValue('estado',$empleado->getEstado());
-		$insert->bindValue('id_tienda',$empleado->getTienda());
+		$insert->bindValue('nombre_tienda',$tienda->getNombreTienda());
+		$insert->bindValue('direccion',$tienda->getDireccion());		
+		$insert->bindValue('codigo_postal',$tienda->getCodigoPostal());		
+		$insert->bindValue('telefono',$tienda->getTelefono());
+		$insert->bindValue('id_provincia',$tienda->getProvincia());
 		$insert->execute();
 
 	}
 
-	/* Hace una consulta devolviendo los datos del empleado
+	/* Hace una consulta devolviendo los datos de la tienda
 	 * y ordenándolos por su id
 	 */
 	public static function all(){
 		$db=Db::getConnect();
-		$listaEmpleados=[];
+		$listaTienda=[];
 
 		$select=$db->query('SELECT * 
-							FROM empleado INNER JOIN provincia
-							ON empleado.id_provincia = provincia.id_provincia; 
+							FROM tienda INNER JOIN provincia
+							ON tienda.id_provincia = provincia.id_provincia; 
 							ORDER BY id');
 
-		foreach($select->fetchAll() as $empleado){
-			$listaEmpleados[]=new Empleado($empleado['id'],$empleado['nombre'],$empleado['apellidos'],
-				$empleado['direccion'],$empleado['nombre_provincia'],$empleado['estado'],$empleado['id_tienda']);
+		foreach($select->fetchAll() as $tienda){
+			$listaTienda[]=new Tienda($tienda['id_tienda'],$tienda['nombre_tienda'],$tienda['direccion'],
+				$tienda['codigo_postal'],$tienda['telefono'],$tienda['nombre_provincia']);
 		}
 		
-		return $listaEmpleados;
+		return $listaTienda;
 	}
 
-	//Hace búsquedas por el nombre
+	//Hace búsquedas por el nombre de la tienda
 	public static function searchByName($name){
 		$db=Db::getConnect();
 		$select=$db->prepare('SELECT *
-							  FROM empleado INNER JOIN provincia
-							  ON empleado.id_provincia = provincia.id_provincia 
-							  WHERE nombre=:nombre');
-		$select->bindValue('nombre',$name);
+							  FROM tienda INNER JOIN provincia
+							  ON tienda.id_provincia = provincia.id_provincia 
+							  WHERE nombre_tienda=:nombre_tienda');
+		$select->bindValue('nombre_tienda',$name);
 		$select->execute();
 
-		$empleadoDb=$select->fetch();
+		$tiendaDb=$select->fetch();
 
-		$empleado = new Empleado ($empleadoDb['id'],$empleadoDb['nombre'], $empleadoDb['apellidos'], 
-							  $empleadoDb['direccion'], $empleadoDb['nombre_provincia'], 
-							  $empleadoDb['estado'],$empleadoDb['id_tienda']);
+		$tienda = new Tienda ($tiendaDb['id_tienda'],$tiendaDb['nombre_tienda'], $tiendaDb['direccion'], 
+							  $tiendaDb['codigo_postal'], $tiendaDb['telefono'], 
+							  $tiendaDb['id_provincia']);
 	
-		return $empleado;
+		return $tienda;
 
 	}
 
 	//Hace búsquedas por el id
-	public static function searchById($id){
+	public static function searchById($id_tienda){
 		$db=Db::getConnect();
 		$select=$db->prepare('SELECT *
-							  FROM empleado INNER JOIN provincia
-							  ON empleado.id_provincia = provincia.id_provincia 
-							  WHERE id=:id');
-		$select->bindValue('id',$id);
+							  FROM tienda INNER JOIN provincia
+							  ON tienda.id_provincia = provincia.id_provincia 
+							  WHERE id_tienda=:id_tienda');
+		$select->bindValue('id_tienda',$id_tienda);
 		$select->execute();
 
-		$empleadoDb=$select->fetch();
+		$tiendaDb=$select->fetch();
 
 
-		$empleado = new Empleado ($empleadoDb['id'],$empleadoDb['nombre'], $empleadoDb['apellidos'], 
-							  $empleadoDb['direccion'], $empleadoDb['nombre_provincia'], 
-							  $empleadoDb['estado'],$empleadoDb['id_tienda']);
+		$tienda = new Tienda ($tiendaDb['id_tienda'],$tiendaDb['nombre_tienda'], $tiendaDb['direccion'], 
+							  $tiendaDb['codigo_postal'], $tiendaDb['telefono'], 
+							  $tiendaDb['id_provincia']);
 							  
-		return $empleado;
+		return $tienda;
 
 	}
 
-	//Actualiza los valores de la tabla empleado
-	public static function update($empleado){
+	//Actualiza los valores de la tabla tienda
+	public static function update($tienda){
 		$db=Db::getConnect();
-		$update=$db->prepare('UPDATE empleado SET nombre=:nombre, apellidos=:apellidos,
-			direccion=:direccion, estado=:estado WHERE id=:id');
-		$update->bindValue('nombre', $empleado->getNombre());
-		$update->bindValue('apellidos',$empleado->getApellidos());
-		$update->bindValue('direccion',$empleado->getDireccion());
-		$update->bindValue('estado',$empleado->getEstado());
-		$update->bindValue('id',$empleado->getId());
+		$update=$db->prepare('UPDATE tienda SET nombre_tienda=:nombre_tienda, direccion=:direccion,
+			codigo_postal=:codigo_postal, telefono=:telefono WHERE id_tienda=:id_tienda');
+		$update->bindValue('nombre_tienda', $tienda->getNombreTienda());
+		$update->bindValue('direccion',$tienda->getDireccion());
+		$update->bindValue('codigo_postal',$tienda->getCodigoPostal());
+		$update->bindValue('telefono',$tienda->getTelefono());
+		$update->bindValue('id_provincia',$tienda->getId());
 		$update->execute();
 	}
 
-	//Borra a un empleado por su id
-	public static function delete($id){
+	//Borra una tienda por su id
+	public static function delete($id_tienda){
 		$db=Db::getConnect();
-		$delete=$db->prepare('DELETE  FROM empleado WHERE id=:id');
-		$delete->bindValue('id',$id);
+		$delete=$db->prepare('DELETE  FROM tienda WHERE id_tienda=:id_tienda');
+		$delete->bindValue('id_tienda',$id_tienda);
 		$delete->execute();		
 	}
 }

@@ -5,11 +5,9 @@
 class EmpleadoController
 {
 	
-	function __construct()
-	{
+	function __construct() {
 		
 	}
-
 	
 	//Función que redirige a la página de registro
 	function register(){

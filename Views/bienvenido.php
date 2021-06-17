@@ -27,15 +27,15 @@
 
   <div class="card mr-4" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title" style="color:#195176;"><span class="material-icons align-middle">business</span>Departamentos</h5>
-      <p class="card-text text-justify">Aquí podrá consultar todos los departamentos y gestionarlos.</p>
-      <a href="?controller=empleado&action=register"
+      <h5 class="card-title" style="color:#195176;"><span class="material-icons align-middle">business</span>Tiendas</h5>
+      <p class="card-text text-justify">Aquí podrá consultar todas las tiendas y gestionarlas.</p>
+      <a href="?controller=tienda&action=register"
         class="btn btn-outline-primary btn-lg"
         role="button" aria-disabled="true"><span class='material-icons md-18'>
         add_business</span>
 		  </a>
-      <a href="" class="btn btn-outline-primary p-2">
-      <span class="material-icons align-middle">store</span>Departamentos</a>
+      <a href="?controller=tienda&action=showTienda" class="btn btn-outline-primary p-2">
+      <span class="material-icons align-middle">store</span>Tiendas</a>
     </div>
   </div>
 
