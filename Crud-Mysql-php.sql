@@ -68,7 +68,7 @@ CREATE TABLE inventario (
 --
 -- Introducimos los valores de la tabla usuario
 --
-INSERT INTO usuario VALUES (1,'Violeta', 'Vayo', '1234');
+INSERT INTO usuario VALUES (1,'Violeta', 'Violeta', '1234');
 INSERT INTO usuario VALUES (2,'admin', 'admin', 'admin');
 
 

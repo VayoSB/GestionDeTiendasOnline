@@ -5,8 +5,8 @@
     $message = "";
     if(count($_POST) > 0) {
         $db=Db::getConnect();
-        $con = mysqli_connect('localhost','root','','tienda') or die('No es posible conectar a la bd.');
-        $result = mysqli_query($con,"SELECT * FROM usuario WHERE nombre_usuario = '". $_POST["nombre_usuario"] . "' and password = '". $_POST["password"]."'");
+        $con = mysqli_connect('localhost','root','','tienda') or die('No es posible conectar a la bd.');      
+        $result = mysqli_query($con,"SELECT * FROM usuario WHERE nombre_usuario = '". $_POST["nombre_usuario"] . "' and password = '". $_POST['password'] ."'");
         $row  = mysqli_fetch_array($result);
         if(is_array($row)) {
             $_SESSION["id_usuario"] = $row['id_usuario'];

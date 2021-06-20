@@ -43,7 +43,9 @@ class Usuario {
 	}
 
 	public function getPassword() {
-		return $this->password;
+		$pass = $_POST['password'];    
+		$passHash = password_hash($pass, PASSWORD_BCRYPT);
+		return $passHash;
 	}
 
 	public function setPassword($password) {
